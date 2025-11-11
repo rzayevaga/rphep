@@ -1,0 +1,1026 @@
+:root {
+    --racore-primary: #2563eb;
+    --racore-primary-dark: #1d4ed8;
+    --racore-secondary: #64748b;
+    --racore-success: #10b981;
+    --racore-warning: #f59e0b;
+    --racore-danger: #ef4444;
+    --racore-info: #0ea5e9;
+    --racore-dark: #1e293b;
+    --racore-light: #f8fafc;
+    --racore-border: #e2e8f0;
+    --racore-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --racore-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--racore-gradient);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.racore-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.racore-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--racore-border);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.racore-header .racore-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.racore-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--racore-primary);
+}
+
+.racore-logo i {
+    font-size: 1.75rem;
+}
+
+.racore-version {
+    background: var(--racore-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.racore-nav-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.racore-nav-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: var(--racore-primary);
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.racore-nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    background: var(--racore-primary-dark);
+}
+
+.racore-nav-up {
+    background: linear-gradient(135deg, var(--racore-primary), var(--racore-primary-dark));
+}
+
+.racore-nav-down {
+    background: linear-gradient(135deg, var(--racore-success), #0da271);
+}
+
+.racore-main {
+    padding: 2rem 0;
+}
+
+.racore-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.racore-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.racore-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+.racore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .racore-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .racore-title {
+        font-size: 2rem;
+    }
+}
+
+.racore-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--racore-shadow);
+    border: 1px solid var(--racore-border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.racore-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--racore-gradient);
+}
+
+.racore-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.racore-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--racore-border);
+}
+
+.racore-card-header i {
+    font-size: 1.75rem;
+    color: var(--racore-primary);
+    background: linear-gradient(135deg, var(--racore-primary), var(--racore-primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.racore-card-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--racore-dark);
+}
+
+.racore-form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.racore-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--racore-dark);
+    font-size: 0.95rem;
+}
+
+.racore-form-group input,
+.racore-form-group select,
+.racore-form-group textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--racore-border);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    font-family: inherit;
+}
+
+.racore-form-group input:focus,
+.racore-form-group select:focus,
+.racore-form-group textarea:focus {
+    outline: none;
+    border-color: var(--racore-primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    transform: translateY(-1px);
+}
+
+.racore-form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+}
+
+.racore-form-group input[type="range"] {
+    padding: 0;
+    height: 6px;
+    background: var(--racore-border);
+    border-radius: 10px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.racore-form-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--racore-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.racore-form-group input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--racore-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.racore-form-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.racore-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--racore-dark);
+}
+
+.racore-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.racore-checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--racore-border);
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.racore-checkbox input[type="checkbox"]:checked + .racore-checkmark {
+    background: var(--racore-primary);
+    border-color: var(--racore-primary);
+}
+
+.racore-checkbox input[type="checkbox"]:checked + .racore-checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.racore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.racore-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.racore-btn:hover::before {
+    left: 100%;
+}
+
+.racore-btn-primary {
+    background: linear-gradient(135deg, var(--racore-primary), var(--racore-primary-dark));
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.racore-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.racore-btn-success {
+    background: linear-gradient(135deg, var(--racore-success), #0da271);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.racore-btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.racore-btn-warning {
+    background: linear-gradient(135deg, var(--racore-warning), #e58e08);
+    color: white;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.racore-btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.racore-btn-secondary {
+    background: linear-gradient(135deg, var(--racore-secondary), #475569);
+    color: white;
+    box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
+}
+
+.racore-btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(100, 116, 139, 0.4);
+}
+
+.racore-btn-info {
+    background: linear-gradient(135deg, var(--racore-info), #0284c7);
+    color: white;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.racore-btn-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+}
+
+.racore-form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.racore-form-actions .racore-btn {
+    flex: 1;
+    justify-content: center;
+}
+
+.racore-result {
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    animation: racoreSlideDown 0.5s ease-out;
+}
+
+.racore-result.success {
+    border: 2px solid var(--racore-success);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.02));
+}
+
+.racore-result.error {
+    border: 2px solid var(--racore-danger);
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.02));
+}
+
+.racore-result-header {
+    padding: 1.25rem 1.5rem;
+    background: var(--racore-light);
+    border-bottom: 1px solid var(--racore-border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+}
+
+.racore-result.success .racore-result-header {
+    color: var(--racore-success);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.racore-result.error .racore-result-header {
+    color: var(--racore-danger);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.racore-result-content {
+    padding: 1.75rem;
+    background: white;
+}
+
+.racore-result-content pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 1.5rem;
+    color: var(--racore-dark);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    background: var(--racore-light);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--racore-primary);
+}
+
+.racore-hash-result {
+    padding: 1.25rem;
+    background: var(--racore-light);
+    border-radius: 12px;
+    border-left: 4px solid var(--racore-primary);
+    margin-top: 1rem;
+}
+
+.racore-hash-output {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.racore-hash-output code {
+    flex: 1;
+    word-break: break-all;
+    background: var(--racore-dark);
+    color: white;
+    padding: 0.875rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.racore-copy-btn {
+    background: linear-gradient(135deg, var(--racore-primary), var(--racore-primary-dark));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.racore-copy-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.racore-details {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(14, 165, 233, 0.02));
+    border-radius: 12px;
+    border-left: 4px solid var(--racore-info);
+}
+
+.racore-details pre {
+    margin: 0;
+    white-space: pre-wrap;
+    color: var(--racore-dark);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.racore-password-strength {
+    margin-top: 0.75rem;
+    background: var(--racore-light);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--racore-border);
+}
+
+.racore-strength-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: #e2e8f0;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.racore-strength-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    transition: all 0.5s ease;
+    background: linear-gradient(90deg, var(--racore-danger), var(--racore-warning), var(--racore-success));
+}
+
+.racore-password-strength[data-strength="weak"] .racore-strength-bar::before {
+    width: 33%;
+    background: var(--racore-danger);
+}
+
+.racore-password-strength[data-strength="medium"] .racore-strength-bar::before {
+    width: 66%;
+    background: var(--racore-warning);
+}
+
+.racore-password-strength[data-strength="strong"] .racore-strength-bar::before {
+    width: 100%;
+    background: var(--racore-success);
+}
+
+.racore-strength-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.racore-password-strength[data-strength="weak"] .racore-strength-text {
+    color: var(--racore-danger);
+}
+
+.racore-password-strength[data-strength="medium"] .racore-strength-text {
+    color: var(--racore-warning);
+}
+
+.racore-password-strength[data-strength="strong"] .racore-strength-text {
+    color: var(--racore-success);
+}
+
+.racore-password-preview {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--racore-light);
+    border-radius: 8px;
+    border: 1px solid var(--racore-border);
+}
+
+.racore-password-preview code {
+    display: block;
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background: var(--racore-dark);
+    color: white;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    word-break: break-all;
+}
+
+.racore-stats-section {
+    margin: 4rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.racore-stats-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--racore-dark);
+    background: var(--racore-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.racore-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.racore-stat-card-large {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--racore-shadow);
+    border: 1px solid var(--racore-border);
+    transition: transform 0.3s ease;
+}
+
+.racore-stat-card-large:hover {
+    transform: translateY(-3px);
+}
+
+.racore-stat-card-large i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: var(--racore-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.racore-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--racore-dark);
+    margin-bottom: 0.5rem;
+}
+
+.racore-stat-label {
+    color: var(--racore-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.racore-algorithm-stats {
+    margin-top: 2rem;
+}
+
+.racore-algorithm-stats h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--racore-dark);
+    text-align: center;
+}
+
+.racore-algorithm-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.racore-algorithm-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid var(--racore-border);
+    transition: transform 0.2s ease;
+}
+
+.racore-algorithm-item:hover {
+    transform: translateX(5px);
+}
+
+.racore-algorithm-name {
+    font-weight: 600;
+    color: var(--racore-dark);
+}
+
+.racore-algorithm-count {
+    color: var(--racore-primary);
+    font-weight: 600;
+    background: rgba(37, 99, 235, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.racore-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.racore-stat-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.racore-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--racore-gradient);
+}
+
+.racore-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.racore-stat-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: var(--racore-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.racore-stat-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--racore-dark);
+    margin-bottom: 0.5rem;
+    background: var(--racore-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.racore-stat-label {
+    color: var(--racore-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.racore-footer {
+    background: var(--racore-dark);
+    color: white;
+    padding: 2.5rem 0;
+    margin-top: 4rem;
+    position: relative;
+}
+
+.racore-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--racore-gradient);
+}
+
+.racore-footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.racore-license {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.racore-license i {
+    color: var(--racore-primary);
+}
+
+@media (max-width: 768px) {
+    .racore-footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .racore-nav-buttons {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .racore-nav-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
+@keyframes racoreFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes racoreSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes racoreSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes racoreSlideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.racore-card,
+.racore-stat-card {
+    animation: racoreFadeIn 0.6s ease-out;
+}
+
+.racore-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-left: 4px solid;
+    z-index: 10000;
+    animation: racoreSlideIn 0.3s ease-out;
+    min-width: 300px;
+    backdrop-filter: blur(10px);
+}
+
+.racore-notification-success {
+    border-left-color: var(--racore-success);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.racore-notification-error {
+    border-left-color: var(--racore-danger);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.racore-notification-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+}
+
+.racore-notification-content i {
+    font-size: 1.25rem;
+}
+
+.racore-notification-success .racore-notification-content i {
+    color: var(--racore-success);
+}
+
+.racore-notification-error .racore-notification-content i {
+    color: var(--racore-danger);
+}
+
+@media (max-width: 768px) {
+    .racore-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .racore-form-actions {
+        flex-direction: column;
+    }
+    
+    .racore-form-actions .racore-btn {
+        margin-bottom: 0.75rem;
+    }
+
+    .racore-hash-output {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .racore-hash-output code {
+        margin-bottom: 0.5rem;
+    }
+    
+    .racore-card {
+        padding: 1.5rem;
+    }
+    
+    .racore-stats,
+    .racore-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .racore-stat-card,
+    .racore-stat-card-large {
+        padding: 1.5rem;
+    }
+
+    .racore-algorithm-list {
+        grid-template-columns: 1fr;
+    }
+
+    .racore-stats-section {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+}
+
+.racore-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.racore-btn:disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+::selection {
+    background: rgba(37, 99, 235, 0.2);
+    color: var(--racore-dark);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--racore-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--racore-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--racore-primary-dark);
+}
+
+.racore-btn:focus-visible,
+.racore-form-group input:focus-visible,
+.racore-form-group select:focus-visible,
+.racore-form-group textarea:focus-visible {
+    outline: 2px solid var(--racore-primary);
+    outline-offset: 2px;
+}
